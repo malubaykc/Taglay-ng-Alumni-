@@ -1,19 +1,19 @@
-import { NavLink } from "react-router-dom";
-import reactLogo from "../assets/react.svg";
-import "../styles/Navbar.css";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <header className="navbar">
-      <div className="navbar-left">
-        <img src={reactLogo} alt="React logo" />
-      </div>
+    <header className="bg-[#FAF7F2]">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className="text-2xl font-serif text-emerald-900">
+          Bookstopia
+        </h1>
 
-      <nav className="navbar-right">
-        <NavLink to="/" end>Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/articles">Articles</NavLink>
-      </nav>
+        <nav className="flex gap-6 text-sm font-medium text-emerald-900">
+          <Link to="/" className="hover:underline">Home</Link>
+          <Link to="/about" className="hover:underline">About</Link>
+          <Link to="/articles" className="hover:underline">Articles</Link>
+        </nav>
+      </div>
     </header>
   );
 }

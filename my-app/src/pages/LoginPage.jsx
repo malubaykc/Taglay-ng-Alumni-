@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,21 +22,15 @@ export default function LoginPage() {
       setLoading(false);
 
       if (res.ok) {
-        alert("Login successful!");
-        console.log("TOKEN:", data.token);
-
-        // store token optional
         localStorage.setItem("token", data.token);
-
-        // redirect to homepage
-        window.location.href = "/";
+        alert("Login successful!");
+        navigate("/");
       } else {
         alert(data.message);
       }
     } catch (err) {
       setLoading(false);
-      alert("Server error. Try again.");
-      console.error(err);
+      alert("Server error");
     }
   };
 
@@ -42,43 +38,41 @@ export default function LoginPage() {
     <div className="flex justify-center items-center min-h-screen bg-neutral-100">
       <form
         onSubmit={handleLogin}
-        className="bg-white shadow-xl rounded-lg p-8 w-[350px] border border-neutral-300"
+        className="bg-white shadow-xl rounded-lg p-8 w-[350px] border"
       >
-        <h1 className="text-3xl font-bold text-center mb-6 text-neutral-700">
-          Login
-        </h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
 
-        <label className="block text-sm text-neutral-600 mb-1">
-          Email
-        </label>
         <input
           type="email"
           required
-          placeholder="Enter email"
-          className="border border-neutral-400 p-2 w-full rounded mb-4"
+          placeholder="Email"
+          className="border p-2 w-full rounded mb-4"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label className="block text-sm text-neutral-600 mb-1">
-          Password
-        </label>
         <input
           type="password"
           required
-          placeholder="Enter password"
-          className="border border-neutral-400 p-2 w-full rounded mb-6"
+          placeholder="Password"
+          className="border p-2 w-full rounded mb-6"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
           disabled={loading}
-          type="submit"
-          className="bg-amber-700 hover:bg-amber-800 text-white p-2 w-full rounded transition-all"
+          className="bg-emerald-700 text-white p-2 w-full rounded"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
+
+        <p className="text-center text-sm mt-4">
+          New user?{" "}
+          <Link to="/register" className="text-emerald-700 font-semibold">
+            Create an account
+          </Link>
+        </p>
       </form>
     </div>
   );

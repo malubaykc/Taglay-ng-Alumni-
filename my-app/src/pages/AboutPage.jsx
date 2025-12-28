@@ -6,8 +6,7 @@ export default function AboutPage() {
           About booksnbrews
         </h2>
         <p className="text-gray-700 leading-relaxed">
-          booksnbrews is a calm digital library designed for thoughtful reading,
-          reflection, and discovery.
+          bookstopia is an archive of different books of different genres users can explore, add, and navigate through freely.
         </p>
       </div>
     </main>

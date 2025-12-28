@@ -35,41 +35,67 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-neutral-100">
+    <div className="min-h-screen flex items-center justify-center bg-neutral-950 px-6">
       <form
         onSubmit={handleLogin}
-        className="bg-white shadow-xl rounded-lg p-8 w-[350px] border"
+        className="w-full max-w-md bg-neutral-900/90 border border-neutral-800
+                   rounded-2xl p-10 shadow-2xl"
       >
-        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
+        {/* Title */}
+        <h1 className="text-4xl font-serif text-center text-amber-400 mb-2">
+          Welcome Back
+        </h1>
+        <p className="text-center text-neutral-400 mb-8">
+          Sign in to continue your reading journey
+        </p>
 
+        {/* Email */}
+        <label className="block text-sm text-neutral-400 mb-1">
+          Email
+        </label>
         <input
           type="email"
           required
-          placeholder="Email"
-          className="border p-2 w-full rounded mb-4"
+          placeholder="you@example.com"
+          className="w-full bg-neutral-950 border border-neutral-700 rounded-lg
+                     px-4 py-3 text-neutral-200 placeholder-neutral-500
+                     focus:outline-none focus:border-amber-500 transition mb-5"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
+        {/* Password */}
+        <label className="block text-sm text-neutral-400 mb-1">
+          Password
+        </label>
         <input
           type="password"
           required
-          placeholder="Password"
-          className="border p-2 w-full rounded mb-6"
+          placeholder="••••••••"
+          className="w-full bg-neutral-950 border border-neutral-700 rounded-lg
+                     px-4 py-3 text-neutral-200 placeholder-neutral-500
+                     focus:outline-none focus:border-amber-500 transition mb-8"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
+        {/* Submit */}
         <button
           disabled={loading}
-          className="bg-emerald-700 text-white p-2 w-full rounded"
+          className="w-full py-3 rounded-lg bg-amber-600 text-neutral-950
+                     font-medium text-lg hover:bg-amber-500 transition
+                     disabled:opacity-60"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
 
-        <p className="text-center text-sm mt-4">
-          New user?{" "}
-          <Link to="/register" className="text-emerald-700 font-semibold">
+        {/* Register */}
+        <p className="text-center text-sm text-neutral-400 mt-6">
+          New here?{" "}
+          <Link
+            to="/register"
+            className="text-amber-400 hover:text-amber-300 font-medium"
+          >
             Create an account
           </Link>
         </p>

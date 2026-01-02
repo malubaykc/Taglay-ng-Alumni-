@@ -1,0 +1,25 @@
+.navbar {
+  margin: 16px;
+  padding: 12px 20px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left img {
+  width: 30px;
+}
+
+.navbar-right a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #3aa6d0;
+  font-weight: 500;
+}
+
+.navbar-right a.active {
+  font-weight: bold;
+}

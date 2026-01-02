@@ -13,7 +13,7 @@ export default function ArticleListPage() {
 
   // 🔹 Fetch articles
   useEffect(() => {
-    fetch("http://localhost:5000/api/articles")
+    fetch("https://taglay-ng-alumni.onrender.com/api/articles")
       .then(res => res.json())
       .then(data => setArticles(data))
       .catch(err => console.error("Fetch error:", err));
